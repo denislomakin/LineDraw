@@ -1,0 +1,8 @@
+Create graph class
+test case txt file
+AWT/Swing shape drawing
+Generate eulerian/semi-eulerian graphs
+User interaction
+Gameplay elements
+Undo
+Random shape
