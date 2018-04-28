@@ -1,0 +1,10 @@
+Line Draw
+Collaborators: Shagun Bose, Wesley Lewis, Oleg Demus, Denis Lomakin
+
+In this game, you are given a random shape. The goal of the game is to draw this shape using one continuous line, without repeating any
+edges. You can start from any vertex, but not all starting vertices will produce a solution, so there is an undo and a reset feature. 
+Higher levels introduce more vertices and more edges.
+
+The graphs generated will be eulerian circuits or eulerian paths. Eulerian circuits have an even number of edges connected to each vertex,
+and can be traversed using each edge only once, starting and ending at the same vertex. Eulerian paths have exactly two vertices with odd
+degree, and so start and end at different vertices and use each edge only once. This way the level always has at least one solution.
