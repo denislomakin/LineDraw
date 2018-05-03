@@ -7,7 +7,7 @@ public class Edge{
         this.v1 = v1;
         this.v2 = v2;
     }
-
+//THIS IS MY CHANGE
     Vertex partner(Vertex v){
         if (v == v1){
             return v2;
