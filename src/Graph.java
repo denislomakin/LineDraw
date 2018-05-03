@@ -46,7 +46,7 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(7);
+        Graph graph = new Graph(15);
         JFrame frame = new JFrame("Line Draw");
         frame.setSize(1000,1000);
         Canvas canvas = new Canvas(graph);
