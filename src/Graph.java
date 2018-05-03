@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.geom.*;
+import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +10,7 @@ public class Graph {
 
     List<Vertex> vertices;
     Vertex[][] board;
+    ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     public Graph(int numVertices){
         board = new Vertex[5][5];
@@ -47,7 +50,7 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(7);
+        Graph graph = new Graph(18);
         JFrame frame = new JFrame("Line Draw");
         frame.setSize(1000,1000);
         Canvas canvas = new Canvas(graph);
