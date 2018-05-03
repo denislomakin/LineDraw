@@ -1,13 +1,16 @@
 import javax.swing.*;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
-public class Canvas extends JPanel {
+public class Canvas extends JPanel  {
 
     Graph graph;
     Vertex[][] board;
-    ArrayList<Shape> shapes = new ArrayList<Shape>();
+    static ArrayList<Shape> shapes = new ArrayList<Shape>();
 
     public Canvas(Graph graph){
         this.graph = graph;
@@ -27,7 +30,7 @@ public class Canvas extends JPanel {
                 int y2 = toY(v2.y);
                 g2.drawLine(x1, y1, x2, y2);
             }
-   
+            shapes.add(new Ellipse2D.Double(x1-10,y1-10,20,20));
             g2.fillOval(x1-10,y1-10,20,20);
         }
     }
@@ -41,4 +44,7 @@ public class Canvas extends JPanel {
         int interval = (this.getWidth()-200)/board.length;
         return 100+(x*interval);
     }
-}
+
+	
+
+	}
