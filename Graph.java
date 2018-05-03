@@ -1,10 +1,8 @@
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Graph {
-	
 
     List<Vertex> vertices;
     Vertex[][] board;
@@ -25,8 +23,6 @@ public class Graph {
                 int randX = rand.nextInt(5);
                 if (board[randY][randX] == null) {
                     board[randY][randX] = v;
-                    v.y = randY;
-                    v.x = randX;
                     break;
                 }
             }
@@ -46,13 +42,29 @@ public class Graph {
         }
     }
 
-    public static void main(String[] args) {
-        Graph graph = new Graph(7);
-        JFrame frame = new JFrame("Line Draw");
-        frame.setSize(1000,1000);
-        Canvas canvas = new Canvas(graph);
-        frame.add(canvas);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+    public class Vertex{
+        List<Edge> adjacencyList;
+        boolean odd;
+
+        public Vertex(){
+            this.adjacencyList = new ArrayList<>();
+            odd = false;
+        }
+
+        public void connect(Vertex v2){
+            Edge e = new Edge(this, v2);
+            this.adjacencyList.add(e);
+            v2.adjacencyList.add(e);
+        }
+    }
+
+    public class Edge{
+        Vertex v1;
+        Vertex v2;
+
+        public Edge(Vertex v1, Vertex v2){
+            this.v1 = v1;
+            this.v2 = v2;
+        }
     }
 }

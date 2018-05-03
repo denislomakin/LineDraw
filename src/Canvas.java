@@ -1,13 +1,14 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.geom.*;
 import java.util.ArrayList;
+
 public class Canvas extends JPanel {
 
     Graph graph;
     Vertex[][] board;
     ArrayList<Shape> shapes = new ArrayList<Shape>();
+
     public Canvas(Graph graph){
         this.graph = graph;
         this.board = graph.board;
@@ -26,7 +27,7 @@ public class Canvas extends JPanel {
                 int y2 = toY(v2.y);
                 g2.drawLine(x1, y1, x2, y2);
             }
-            shapes.add(new Ellipse2D.Double(x1-10,y1-10,20,20));
+   
             g2.fillOval(x1-10,y1-10,20,20);
         }
     }
