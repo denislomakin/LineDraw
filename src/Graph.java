@@ -64,9 +64,15 @@ public class Graph {
         		System.out.println("click");
         		int x = e.getX();
         		int y = e.getY();
-        		for (Shape a:Canvas.shapes.keySet()){
+        		for (Shape a:Canvas.shapes.keySet()){       			
         			if (a.contains(x, y)){
-        				Canvas.usedvertexes.add(Canvas.shapes.get(a));
+        				Vertex temp = Canvas.shapes.get(a);
+        				System.out.println(temp.adjacencyList);
+//        				if (canvas.usedvertexes.isEmpty()||(temp.adjacencyList.contains(canvas.usedvertexes.get(canvas.usedvertexes.size()-1))&&!canvas.usedvertexes.contains(temp))){
+        					Canvas.usedvertexes.add(temp);	
+//        				}
+        				
+        				
         			}
         		}
         	}
