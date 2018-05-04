@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Canvas extends JPanel implements MouseListener {
- 
+	
 	static Vertex temp;
     Graph graph;
     Vertex[][] board;
@@ -80,6 +80,7 @@ public class Canvas extends JPanel implements MouseListener {
 
     @Override
 	public void mouseClicked(MouseEvent e){
+    		
 		System.out.println("click");
 		int x = e.getX();
 		int y = e.getY();

@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Random;
 public class Graph {
 
-
-
 	List<Vertex> vertices;
 	Vertex[][] board;
 
