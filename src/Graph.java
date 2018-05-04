@@ -64,9 +64,9 @@ public class Graph {
         		System.out.println("click");
         		int x = e.getX();
         		int y = e.getY();
-        		for (Shape a:Canvas.shapes){
+        		for (Shape a:Canvas.shapes.keySet()){
         			if (a.contains(x, y)){
-        				
+        				Canvas.usedvertexes.add(Canvas.shapes.get(a));
         			}
         		}
         	}
