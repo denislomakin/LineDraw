@@ -7,8 +7,9 @@ import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Canvas extends JPanel  {
-
+public class Canvas extends JPanel implements MouseListener {
+ 
+	static Vertex temp;
     Graph graph;
     Vertex[][] board;
     static HashMap<Shape,Vertex> shapes = new HashMap<Shape,Vertex>();
@@ -17,6 +18,20 @@ public class Canvas extends JPanel  {
     public Canvas(Graph graph){
         this.graph = graph;
         this.board = graph.board;
+        addMouseListener(this);
+    }
+    
+    public void refresh(Graph g) {
+    		this.graph = g;
+    		this.board = g.board;
+    		usedvertexes.clear();
+    		repaint();
+    }
+
+    public void restore() {
+    		shapes.clear();
+    		usedvertexes.clear();
+    		repaint();
     }
 
     @Override
@@ -62,6 +77,45 @@ public class Canvas extends JPanel  {
         int interval = (this.getWidth()-200)/board.length;
         return 100+(x*interval);
     }
+
+    @Override
+	public void mouseClicked(MouseEvent e){
+		System.out.println("click");
+		int x = e.getX();
+		int y = e.getY();
+
+		int index = 0;
+		for (Shape a:Canvas.shapes.keySet()){      
+			index++;
+			if (a.contains(x, y)&&Canvas.usedvertexes.isEmpty()){
+				temp = Canvas.shapes.get(a);
+				Canvas.usedvertexes.add(temp);
+			}
+			else if (a.contains(x, y)) {
+
+				for (int z =0; z<temp.adjacencyList.size(); z++) {
+					if (temp.adjacencyList.get(z).v2.equals(Canvas.shapes.get(a))) {
+						temp = Canvas.shapes.get(a);
+						Canvas.usedvertexes.add(temp);
+					}else {
+						System.out.println("Cant do this!");
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {}
+
+	@Override
+	public void mouseExited(MouseEvent e) {}
 
 	
 
