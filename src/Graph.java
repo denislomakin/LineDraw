@@ -1,13 +1,20 @@
 import javax.swing.*;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.geom.*;
+import java.awt.BorderLayout;
+import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Graph {
+	
 
     List<Vertex> vertices;
     Vertex[][] board;
-
+    
     public Graph(int numVertices){
         board = new Vertex[5][5];
         Random rand = new Random();
@@ -46,11 +53,49 @@ public class Graph {
     }
 
     public static void main(String[] args) {
-        Graph graph = new Graph(15);
+        Graph graph = new Graph(18);
         JFrame frame = new JFrame("Line Draw");
-        frame.setSize(1000,1000);
+        frame.setLayout(new BorderLayout());
+        frame.setSize(800,800);
         Canvas canvas = new Canvas(graph);
-        frame.add(canvas);
+        canvas.addMouseListener(new MouseListener(){
+        	@Override
+        	public void mouseClicked(MouseEvent e){
+        		System.out.println("click");
+        		int x = e.getX();
+        		int y = e.getY();
+        		for (Shape a:Canvas.shapes){
+        			if (a.contains(x, y)){
+        				
+        			}
+        		}
+        	}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+        });
+        frame.add(canvas,BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }

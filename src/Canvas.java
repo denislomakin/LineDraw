@@ -1,13 +1,17 @@
 import javax.swing.*;
 
 import java.awt.*;
-import java.awt.geom.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
-public class Canvas extends JPanel {
+
+public class Canvas extends JPanel  {
 
     Graph graph;
     Vertex[][] board;
-    ArrayList<Shape> shapes = new ArrayList<Shape>();
+    static ArrayList<Shape> shapes = new ArrayList<Shape>();
+
     public Canvas(Graph graph){
         this.graph = graph;
         this.board = graph.board;
@@ -40,4 +44,7 @@ public class Canvas extends JPanel {
         int interval = (this.getWidth()-200)/board.length;
         return 100+(x*interval);
     }
-}
+
+	
+
+	}
