@@ -73,7 +73,7 @@ public class Graph {
         				Canvas.usedvertexes.add(temp);
         			}
         			else if (a.contains(x, y)) {
-        				System.out.println(temp.adjacencyList.get(1));
+        			
         				for (int z =0; z<temp.adjacencyList.size(); z++) {
         					if (temp.adjacencyList.get(z).v2.equals(Canvas.shapes.get(a))) {
         						temp = Canvas.shapes.get(a);

@@ -24,8 +24,11 @@ public class Canvas extends JPanel  {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setStroke(new BasicStroke(5));
         //for each vertex
+        int a=0;
+        Color col;
         for (Vertex v1: graph.vertices) {
-        	g2.setColor(Color.BLACK);
+        	col= new Color(a,200-a,a);
+        	g2.setColor(col);
             int x1 = toX(v1.x);
             int y1 = toY(v1.y);
             //for every edge adjacent to that vertex
@@ -37,7 +40,9 @@ public class Canvas extends JPanel  {
             
             }
             shapes.put(new Ellipse2D.Double(x1-10,y1-10,20,20),v1);
+
             g2.fillOval(x1-10,y1-10,20,20);
+            a+=5;
         }
         for (Vertex v2:usedvertexes){
         	g2.setColor(Color.YELLOW);
