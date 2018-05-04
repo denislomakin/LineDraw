@@ -8,9 +8,9 @@ import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 public class Graph {
-	
+	static Vertex temp;
+
 
     List<Vertex> vertices;
     Vertex[][] board;
@@ -64,18 +64,32 @@ public class Graph {
         		System.out.println("click");
         		int x = e.getX();
         		int y = e.getY();
-        		for (Shape a:Canvas.shapes.keySet()){       			
-        			if (a.contains(x, y)){
-        				Vertex temp = Canvas.shapes.get(a);
-        				System.out.println(temp.adjacencyList);
-//        				if (canvas.usedvertexes.isEmpty()||(temp.adjacencyList.contains(canvas.usedvertexes.get(canvas.usedvertexes.size()-1))&&!canvas.usedvertexes.contains(temp))){
-        					Canvas.usedvertexes.add(temp);	
-//        				}
-        				
-        				
+        	
+        		int index = 0;
+        		for (Shape a:Canvas.shapes.keySet()){      
+        			index++;
+        			if (a.contains(x, y)&&Canvas.usedvertexes.isEmpty()){
+        				 temp = Canvas.shapes.get(a);
+        				Canvas.usedvertexes.add(temp);
         			}
-        		}
+        			else if (a.contains(x, y)) {
+        				System.out.println(temp.adjacencyList.get(1));
+        				for (int z =0; z<temp.adjacencyList.size(); z++) {
+        					if (temp.adjacencyList.get(z).v2.equals(Canvas.shapes.get(a))) {
+        						temp = Canvas.shapes.get(a);
+            					Canvas.usedvertexes.add(temp);
+        					}else {
+            					System.out.println("Cant do this!");
+            				}
+        				}
+        					
+        				
+        				
+        				}
+        			}
         	}
+        		
+       
 
 			@Override
 			public void mousePressed(MouseEvent e) {

@@ -12,8 +12,8 @@ public class Canvas extends JPanel  {
     Graph graph;
     Vertex[][] board;
     static HashMap<Shape,Vertex> shapes = new HashMap<Shape,Vertex>();
-    static ArrayList<Vertex> usedvertexes = new ArrayList<Vertex>();
 
+    static ArrayList<Vertex> usedvertexes = new ArrayList<Vertex>();
     public Canvas(Graph graph){
         this.graph = graph;
         this.board = graph.board;
